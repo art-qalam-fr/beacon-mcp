@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "beacon": {
+      "command": "C:/Program Files/Beacon/bin/beacon.exe",
+      "args": ["mcp", "serve"]
+    }
+  }
+}

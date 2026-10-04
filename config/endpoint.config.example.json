@@ -1,0 +1,16 @@
+{
+  "user_mode": true,
+  "log_path": "~/.beacon/endpoint/logs/runtime.jsonl",
+  "collector": {
+    "config_path": "~/.beacon/endpoint/otelcol.yaml",
+    "grpc_port": 4317,
+    "http_port": 4318,
+    "spool_path": "~/.beacon/endpoint/spool/otlp.jsonl"
+  },
+  "harnesses": [
+    "claude",
+    "codex",
+    "gemini",
+    "vscode"
+  ]
+}

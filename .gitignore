@@ -1,0 +1,35 @@
+# ── Secrets / credentials — JAMAIS dans le repo ──
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+credentials*.json
+*-credentials.json
+session.json
+secrets*.json
+*.secret
+auth/
+
+# ── Données runtime Beacon (~/.beacon) — ne JAMAIS commit ──
+.beacon/
+*.log
+*.jsonl
+*.jsonl.*
+*.db
+*.db-*
+traces.db
+memory.db
+spool/
+*.pid
+*.lock
+
+# ── Divers ──
+node_modules/
+__pycache__/
+Thumbs.db
+.DS_Store
+desktop.ini
+*.swp
+*~
