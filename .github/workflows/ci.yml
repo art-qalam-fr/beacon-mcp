@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ps-parse:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse-check all PowerShell files
+        shell: pwsh
+        run: |
+          $fail = $false
+          Get-ChildItem -Recurse -Include *.ps1,*.psm1 -File | ForEach-Object {
+            $tok = $null; $errs = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tok, [ref]$errs)
+            if ($errs.Count -gt 0) {
+              $fail = $true
+              foreach ($e in $errs) { Write-Host "::error file=$($_.FullName),line=$($e.Extent.StartLineNumber)::$($e.Message)" }
+            }
+          }
+          if ($fail) { exit 1 }
