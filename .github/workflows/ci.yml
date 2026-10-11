@@ -12,7 +12,7 @@ jobs:
   ps-parse:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Parse-check all PowerShell files
         shell: pwsh
         run: |
